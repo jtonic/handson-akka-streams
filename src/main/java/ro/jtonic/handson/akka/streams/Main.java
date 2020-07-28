@@ -20,6 +20,6 @@ public class Main {
 
   @Bean
   public static CommandLineRunner runner() {
-    return args -> System.out.println("Run the application");
+    return args -> System.out.println("Test github actions.");
   }
 }
