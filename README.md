@@ -4,10 +4,11 @@
 
 - [x] set up the project
 - [x] create the docker-compose (kafka, cassandra)
-- [ ] create a simple alpakka kafka consumer to and stream it to the console
+- [x] create a simple alpakka kafka producer which produce kafka messages pushed by an iterator source
+- [ ] Configure the flow to serialize to JSON
+- [ ] Configure the Akka Telemetry (developer sandbox) to tune the performance (fusion)
+- [ ] create a simple alpakka kafka consumer and stream it to the console
 - [ ] runnable graph to stream data from kafka topic into the cassandra storage
-- [ ] play with Akka Telemetry to tune the performance (fusion)
-
 
 ## How prepare the stage and run the application
 

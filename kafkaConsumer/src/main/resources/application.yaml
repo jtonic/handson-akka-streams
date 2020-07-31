@@ -1,0 +1,7 @@
+debug: true
+
+jtonic:
+  akka-streams:
+    kafka-bootstrap-servers: localhost:9092
+    topic: jtonic-akka-streams-topic
+    group-id: jtonic-akka-streams

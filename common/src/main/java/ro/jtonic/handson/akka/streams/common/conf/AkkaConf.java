@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.conf;
+package ro.jtonic.handson.akka.streams.common.conf;
 
 import akka.actor.ActorSystem;
 import akka.stream.Materializer;

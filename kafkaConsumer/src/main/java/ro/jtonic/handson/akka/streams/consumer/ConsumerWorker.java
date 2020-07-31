@@ -1,24 +1,22 @@
-package ro.jtonic.handson.akka.streams;
+package ro.jtonic.handson.akka.streams.consumer;
 
 import akka.actor.ActorSystem;
 import akka.stream.Materializer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
-@Component
-public class Worker implements CommandLineRunner {
+public class ConsumerWorker implements CommandLineRunner {
 
-  private final Materializer materializer;
-  private final ActorSystem actorSystem;
-
-  public Worker(Materializer materializer, ActorSystem actorSystem) {
-    this.materializer = materializer;
-    this.actorSystem = actorSystem;
-  }
+  @Autowired
+  private Materializer materializer;
+  @Autowired
+  private ActorSystem actorSystem;
 
   @Override
   public void run(String... args) throws Exception {
+
     System.out.println("E-core is running.\nPress RETURN to stop...");
+
     System.in.read();
     release();
   }

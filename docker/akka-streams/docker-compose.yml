@@ -48,7 +48,7 @@ services:
     depends_on:
       kafka-1:
         condition: service_healthy
-    command: /bin/bash -c "echo creating kafka topic && /usr/bin/kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic test-topic"
+    command: /bin/bash -c "echo creating kafka topic && /usr/bin/kafka-topics --create --zookeeper zookeeper:2181 --replication-factor 1 --partitions 1 --topic jtonic-akka-streams-topic"
 
   cassandra:
     image: cassandra:3.11.2
