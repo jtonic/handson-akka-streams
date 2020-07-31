@@ -14,9 +14,9 @@ import org.springframework.stereotype.Service;
 public class KafkaSink {
 
   @Getter
-  private final Sink<ProducerRecord<UUID, String>, CompletionStage<Done>> sink;
+  private final Sink<ProducerRecord<UUID, Notification>, CompletionStage<Done>> sink;
 
-  public KafkaSink(ProducerSettings<UUID, String> producerSettings) {
+  public KafkaSink(ProducerSettings<UUID, Notification> producerSettings) {
     this.sink = Producer.plainSink(producerSettings);
   }
 }

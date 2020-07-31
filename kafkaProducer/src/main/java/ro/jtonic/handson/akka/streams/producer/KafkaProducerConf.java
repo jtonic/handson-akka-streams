@@ -3,8 +3,8 @@ package ro.jtonic.handson.akka.streams.producer;
 import akka.actor.ActorSystem;
 import akka.kafka.ProducerSettings;
 import com.typesafe.config.Config;
+import io.confluent.kafka.serializers.KafkaJsonSerializer;
 import java.util.UUID;
-import org.apache.kafka.common.serialization.StringSerializer;
 import org.apache.kafka.common.serialization.UUIDSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -25,9 +25,9 @@ public class KafkaProducerConf {
   }
 
   @Bean
-  public ProducerSettings<UUID, String> producerSettings() {
+  public ProducerSettings<UUID, Notification> producerSettings() {
     final Config config = actorSystem.settings().config().getConfig("akka.kafka.producer");
-    return ProducerSettings.create(config, new UUIDSerializer(), new StringSerializer())
+    return ProducerSettings.create(config, new UUIDSerializer(), new KafkaJsonSerializer<Notification>())
         .withBootstrapServers(bootstrapServers);
   }
 }
