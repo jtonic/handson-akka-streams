@@ -7,16 +7,23 @@
 - [x] create a simple alpakka kafka producer which produce kafka messages pushed by an iterator source
 - [ ] Configure the flow to serialize to JSON
 - [ ] Configure the Akka Telemetry (developer sandbox) to tune the performance (fusion)
-- [ ] create a simple alpakka kafka consumer and stream it to the console
+- [ ] Create a simple alpakka kafka consumer and stream it to the console
+- [ ] Log configuration for:
+    - [ ] Akka actors
+    - [ ] Akka stream materializer
+    - [ ] Alpakka Kafka integration
+- [ ] UT for alpakka flows
+- [ ] IT for alpakka flows
 - [ ] runnable graph to stream data from kafka topic into the cassandra storage
+
 
 ## How prepare the stage and run the application
 
 - run the application
 
-```shell script
-$ ./mvnw spring-boot:run
-``` 
+    - First run the docker containers with the shared IntelliJ Idea Run Configuration or `docker-compose up`
+    
+    - Use the shared IntelliJ Idea Run Configurations
 
 ## Recommendations
 
