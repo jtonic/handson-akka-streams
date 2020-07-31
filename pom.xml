@@ -30,6 +30,7 @@
     <akka-stream-kafka.version>2.0.4</akka-stream-kafka.version>
     <akka.version>2.6.8</akka.version>
     <driver.version>4.7.2</driver.version>
+    <lombok.version>1.18.12</lombok.version>
   </properties>
 
   <dependencies>
@@ -78,6 +79,13 @@
       <groupId>com.datastax.oss</groupId>
       <artifactId>java-driver-mapper-runtime</artifactId>
       <version>${driver.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
