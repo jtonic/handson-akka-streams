@@ -1,14 +1,11 @@
-.idea/
-
-# File-based project format
-*.iws
-*.iml
 
 # IntelliJ
+.idea/*
+!.idea/runConfigurations/
 out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
+*.iws
+*.iml
+*.ipr
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
