@@ -1,0 +1,5 @@
+kafka:
+  bootstrap_address: localhost:9092
+  topic_name: ecore-topic
+  group_id: ecore-group
+messages_no: 10000
