@@ -32,7 +32,6 @@
     <akka.version>2.6.8</akka.version>
     <driver.version>4.7.2</driver.version>
     <lombok.version>1.18.12</lombok.version>
-    <kafka-json-serializer.version>5.5.1</kafka-json-serializer.version>
   </properties>
 
   <dependencies>
@@ -82,11 +81,7 @@
       <artifactId>java-driver-mapper-runtime</artifactId>
       <version>${driver.version}</version>
     </dependency>
-    <dependency>
-      <groupId>io.confluent</groupId>
-      <artifactId>kafka-json-serializer</artifactId>
-      <version>${kafka-json-serializer.version}</version>
-    </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -112,17 +107,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <repositories>
-    <repository>
-      <id>confluent</id>
-      <url>http://packages.confluent.io/maven/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
 </project>
