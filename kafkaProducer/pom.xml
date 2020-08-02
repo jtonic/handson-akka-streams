@@ -14,19 +14,86 @@
   <artifactId>kafkaProducer</artifactId>
   <name>kafka-producer</name>
 
+  <properties>
+    <scala-version>2.13</scala-version>
+    <cinnamon-version>2.13.0</cinnamon-version>
+    <cinnamon.prometheus.http-server.port>9001</cinnamon.prometheus.http-server.port>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>ro.jtonic.handson.akka</groupId>
       <artifactId>common</artifactId>
       <version>${project.version}</version>
     </dependency>
+
+    <!--lightbend cinnamon-->
+    <dependency>
+      <groupId>com.lightbend.cinnamon</groupId>
+      <artifactId>cinnamon-akka_${scala-version}</artifactId>
+      <version>${cinnamon-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lightbend.cinnamon</groupId>
+      <artifactId>cinnamon-akka-http_${scala-version}</artifactId>
+      <version>${cinnamon-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lightbend.cinnamon</groupId>
+      <artifactId>cinnamon-jvm-metrics-producer</artifactId>
+      <version>${cinnamon-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lightbend.cinnamon</groupId>
+      <artifactId>cinnamon-prometheus</artifactId>
+      <version>${cinnamon-version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.lightbend.cinnamon</groupId>
+      <artifactId>cinnamon-prometheus-httpserver</artifactId>
+      <version>${cinnamon-version}</version>
+    </dependency>
   </dependencies>
 
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.lightbend.cinnamon</groupId>
+                  <artifactId>cinnamon-agent</artifactId>
+                  <version>${cinnamon-version}</version>
+                  <overWrite>true</overWrite>
+                  <destFileName>cinnamon-agent.jar</destFileName>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <agents>
+            <agent>
+              ${project.build.directory}/dependency/cinnamon-agent.jar
+            </agent>
+          </agents>
+          <systemPropertyVariables>
+            <cinnamon.prometheus.http-server.port>${cinnamon.prometheus.http-server.port}</cinnamon.prometheus.http-server.port>
+          </systemPropertyVariables>
+        </configuration>
       </plugin>
     </plugins>
   </build>

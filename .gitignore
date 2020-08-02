@@ -1,3 +1,7 @@
+# Docker
+docker/akka-streams/*
+!docker/akka-streams/cql/
+!docker/akka-streams/docker-compose.yml
 
 # IntelliJ
 .idea/*
@@ -6,12 +10,6 @@ out/
 *.iws
 *.iml
 *.ipr
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
 
 ### Maven template
 target/
@@ -25,20 +23,3 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
-
-### Gradle template
-.gradle
-/build/
-
-# Ignore Gradle GUI config
-gradle-app.setting
-
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
-# Cache of project
-.gradletasknamecache
-
-# # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
-
