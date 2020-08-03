@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.producer;
+package ro.jtonic.handson.akka.streams.producer.conf;
 
 import akka.actor.ActorSystem;
 import akka.kafka.ProducerSettings;
@@ -15,12 +15,11 @@ import java.util.UUID;
 public class KafkaProducerConf {
 
   private final ActorSystem actorSystem;
-
   private final String bootstrapServers;
 
   public KafkaProducerConf(
       ActorSystem actorSystem,
-      @Value("${jtonic.akka-streams.kafka-bootstrap-servers}") String bootstrapServers) {
+      @Value("${jtonic.akka-streams.kafka.bootstrap-servers}") String bootstrapServers) {
     this.actorSystem = actorSystem;
     this.bootstrapServers = bootstrapServers;
   }

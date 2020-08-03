@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.producer;
+package ro.jtonic.handson.akka.streams.producer.flow;
 
 import akka.NotUsed;
 import akka.stream.javadsl.Flow;
@@ -10,16 +10,17 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 
 @Service
-public class KafkaProducerRecordFlow {
+public class ProducerRecordFlow {
 
   @Getter
   private final Flow<String, ProducerRecord<UUID, String>, NotUsed> flow;
 
-  @Value("${jtonic.akka-streams.topic}")
+  @Value("${jtonic.akka-streams.kafka.topic}")
   private String topic;
 
-  public KafkaProducerRecordFlow() {
+  public ProducerRecordFlow() {
     flow = Flow.of(String.class)
-        .map(value -> new ProducerRecord<>(topic, UUID.randomUUID(), value));
+        .map(value -> new ProducerRecord<>(topic, UUID.randomUUID(), value))
+        .named("kafka-producer-record");
   }
 }

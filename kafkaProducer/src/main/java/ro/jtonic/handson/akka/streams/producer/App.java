@@ -8,15 +8,15 @@ import ro.jtonic.handson.akka.streams.common.conf.AkkaConf;
 
 @SpringBootApplication(
     scanBasePackageClasses = {
-        KafkaProducerMain.class,
+        App.class,
         AkkaConf.class
     }
 )
-public class KafkaProducerMain {
+public class App {
 
   public static void main(String[] args) {
     new SpringApplicationBuilder()
-        .sources(KafkaProducerMain.class)
+        .sources(App.class)
         .web(WebApplicationType.NONE)
         .bannerMode(Mode.OFF)
         .build().run(args);

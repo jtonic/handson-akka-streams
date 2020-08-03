@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.producer;
+package ro.jtonic.handson.akka.streams.producer.flow;
 
 import akka.Done;
 import akka.kafka.ProducerSettings;
@@ -12,12 +12,12 @@ import java.util.UUID;
 import java.util.concurrent.CompletionStage;
 
 @Service
-public class KafkaSink {
+public class DataSink {
 
   @Getter
   private final Sink<ProducerRecord<UUID, String>, CompletionStage<Done>> sink;
 
-  public KafkaSink(ProducerSettings<UUID, String> producerSettings) {
-    this.sink = Producer.plainSink(producerSettings);
+  public DataSink(ProducerSettings<UUID, String> producerSettings) {
+    this.sink = Producer.plainSink(producerSettings).named("kafka-data-sink");
   }
 }
