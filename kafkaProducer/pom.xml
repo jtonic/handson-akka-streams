@@ -27,7 +27,7 @@
       <id>metrics</id>
 
       <properties>
-        <cinnamon-version>2.13.0</cinnamon-version>
+        <cinnamon-version>2.14.2</cinnamon-version>
         <cinnamon.prometheus.http-server.port>9001</cinnamon.prometheus.http-server.port>
       </properties>
 
@@ -36,6 +36,21 @@
         <dependency>
           <groupId>com.lightbend.cinnamon</groupId>
           <artifactId>cinnamon-akka_${scala.version}</artifactId>
+          <version>${cinnamon-version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.lightbend.cinnamon</groupId>
+          <artifactId>cinnamon-akka-typed_${scala.version}</artifactId>
+          <version>${cinnamon-version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.lightbend.cinnamon</groupId>
+          <artifactId>cinnamon-akka-persistence_${scala.version}</artifactId>
+          <version>${cinnamon-version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.lightbend.cinnamon</groupId>
+          <artifactId>cinnamon-akka-stream_${scala.version}</artifactId>
           <version>${cinnamon-version}</version>
         </dependency>
         <dependency>
