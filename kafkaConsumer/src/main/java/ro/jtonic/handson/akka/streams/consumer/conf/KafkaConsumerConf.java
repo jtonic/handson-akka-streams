@@ -1,14 +1,16 @@
-package ro.jtonic.handson.akka.streams.consumer;
+package ro.jtonic.handson.akka.streams.consumer.conf;
 
 
 import akka.actor.ActorSystem;
 import akka.kafka.ConsumerSettings;
-import java.time.Duration;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import ro.jtonic.handson.akka.streams.consumer.KafkaSource;
+
+import java.time.Duration;
 
 @Configuration
 public class KafkaConsumerConf {
@@ -20,9 +22,9 @@ public class KafkaConsumerConf {
 
   public KafkaConsumerConf(
       ActorSystem actorSystem,
-      @Value("${jtonic.akka-streams.kafka-bootstrap-servers}") String kafkaBootstrapServers,
-      @Value("${jtonic.akka-streams.group-id}") String groupId,
-      @Value("${jtonic.akka-streams.topic}") String topic
+      @Value("${jtonic.akka-streams.kafka.bootstrap-servers}") String kafkaBootstrapServers,
+      @Value("${jtonic.akka-streams.kafka.group-id}") String groupId,
+      @Value("${jtonic.akka-streams.kafka.topic}") String topic
       ) {
 
     this.actorSystem = actorSystem;
