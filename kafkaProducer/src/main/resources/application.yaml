@@ -2,6 +2,10 @@ debug: false
 
 jtonic:
   akka-streams:
-    kafka-bootstrap-servers: localhost:9092
-    topic: jtonic-akka-streams-topic
-    group-id: jtonic-akka-streams
+    kafka:
+      bootstrap-servers: localhost:9092
+      topic: ecore-topic
+      group-id: ecore-group
+  messages-no: 10000
+#  busy duration in millisec
+  busy-duration: 200
