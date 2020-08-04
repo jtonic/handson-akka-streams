@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="KafkaConsumerMain" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+  <configuration default="false" name="[App] Alpakka Kafka Consumer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="kafkaConsumer" />
     <extension name="coverage">
       <pattern>
@@ -7,7 +7,7 @@
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <option name="SPRING_BOOT_MAIN_CLASS" value="ro.jtonic.handson.akka.streams.consumer.KafkaConsumerMain" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ro.jtonic.handson.akka.streams.consumer.App" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
       <option name="Make" enabled="true" />
