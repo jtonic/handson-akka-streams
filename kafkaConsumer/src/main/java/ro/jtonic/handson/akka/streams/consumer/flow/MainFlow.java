@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.consumer;
+package ro.jtonic.handson.akka.streams.consumer.flow;
 
 import akka.actor.ActorSystem;
 import akka.kafka.CommitterSettings;
@@ -11,23 +11,23 @@ import org.springframework.stereotype.Component;
 import ro.jtonic.handson.akka.streams.common.eip.PassThroughFlow;
 
 @Component
-public class EcoreFlow {
+public class MainFlow {
 
   private final KafkaSource kafkaSource;
-  private final ChannelSink channelSink;
+  private final DataSink dataSink;
   private final ValidatorFlow validatorFlow;
   private final Materializer materializer;
   private final ActorSystem actorSystem;
 
-  public EcoreFlow(
-      KafkaSource kafkaSource,
-      ChannelSink channelSink,
-      ValidatorFlow validatorFlow,
-      Materializer materializer,
-      ActorSystem actorSystem) {
+  public MainFlow(
+          KafkaSource kafkaSource,
+          DataSink dataSink,
+          ValidatorFlow validatorFlow,
+          Materializer materializer,
+          ActorSystem actorSystem) {
 
     this.kafkaSource = kafkaSource;
-    this.channelSink = channelSink;
+    this.dataSink = dataSink;
     this.validatorFlow = validatorFlow;
     this.materializer = materializer;
     this.actorSystem = actorSystem;

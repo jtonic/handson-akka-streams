@@ -9,22 +9,22 @@ import ro.jtonic.handson.akka.streams.common.conf.AkkaConf;
 
 @SpringBootApplication(
   scanBasePackageClasses = {
-      KafkaConsumerMain.class,
+      App.class,
       AkkaConf.class
   }
 )
-public class KafkaConsumerMain {
+public class App {
 
   public static void main(String[] args) {
     new SpringApplicationBuilder()
-        .sources(KafkaConsumerMain.class)
+        .sources(App.class)
         .web(WebApplicationType.NONE)
         .bannerMode(Mode.OFF)
         .build().run(args);
   }
 
   @Bean
-  public ConsumerWorker consumerWorker() {
-    return new ConsumerWorker();
+  public Worker consumerWorker() {
+    return new Worker();
   }
 }

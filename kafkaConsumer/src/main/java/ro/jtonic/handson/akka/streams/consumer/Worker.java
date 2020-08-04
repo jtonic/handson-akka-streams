@@ -5,7 +5,7 @@ import akka.stream.Materializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 
-public class ConsumerWorker implements CommandLineRunner {
+public class Worker implements CommandLineRunner {
 
   @Autowired
   private Materializer materializer;

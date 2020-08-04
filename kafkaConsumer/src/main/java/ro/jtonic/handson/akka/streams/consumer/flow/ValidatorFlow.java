@@ -1,4 +1,4 @@
-package ro.jtonic.handson.akka.streams.consumer;
+package ro.jtonic.handson.akka.streams.consumer.flow;
 
 import akka.NotUsed;
 import akka.kafka.ConsumerMessage.CommittableMessage;
