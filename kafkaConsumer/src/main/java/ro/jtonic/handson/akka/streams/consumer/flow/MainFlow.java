@@ -7,10 +7,10 @@ import akka.kafka.javadsl.Committer;
 import akka.kafka.javadsl.Consumer;
 import akka.stream.Materializer;
 import akka.stream.javadsl.Keep;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import ro.jtonic.handson.akka.streams.common.eip.PassThroughFlow;
 
-@Component
+@Service
 public class MainFlow {
 
   private final KafkaSource kafkaSource;
@@ -36,9 +36,8 @@ public class MainFlow {
   public void run() {
 
     CommitterSettings committerSettings = CommitterSettings.create(actorSystem);
-    kafkaSource
-        .build()
-        .via(PassThroughFlow.create(validatorFlow.build(), Keep.right()))
+    kafkaSource.getSource()
+        .via(PassThroughFlow.create(validatorFlow.getFlow(), Keep.right()))
         .map(CommittableMessage::committableOffset)
         .toMat(Committer.sink(committerSettings), Keep.both())
         .mapMaterializedValue(Consumer::createDrainingControl)

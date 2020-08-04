@@ -6,22 +6,21 @@ import akka.kafka.Subscriptions;
 import akka.kafka.javadsl.Consumer;
 import akka.kafka.javadsl.Consumer.Control;
 import akka.stream.javadsl.Source;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
+@Service
 public class KafkaSource {
 
-  private final String topic;
-  private final ConsumerSettings<String, String> kafkaConsumerSettings;
+  @Getter
+  private final Source<CommittableMessage<String, String>, Control> source;
 
   public KafkaSource(
       ConsumerSettings<String, String> kafkaConsumerSettings,
-      String topic) {
+      @Value("${jtonic.akka-streams.kafka.topic}") String topic) {
 
-    this.kafkaConsumerSettings = kafkaConsumerSettings;
-    this.topic = topic;
-  }
-
-  public Source<CommittableMessage<String, String>, Control> build() {
-    return Consumer
-        .committableSource(kafkaConsumerSettings, Subscriptions.topics(topic));
+    this.source = Consumer
+            .committableSource(kafkaConsumerSettings, Subscriptions.topics(topic));
   }
 }

@@ -1,12 +1,16 @@
 package ro.jtonic.handson.akka.streams.consumer.flow;
 
 import akka.stream.javadsl.Sink;
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class DataSink {
 
-  public final Sink<String, ?> build() {
-    return Sink.foreach(System.out::println);
+  @Getter
+  private final Sink<String, ?> sink;
+
+  public DataSink() {
+    sink = Sink.foreach(System.out::println);
   }
 }
