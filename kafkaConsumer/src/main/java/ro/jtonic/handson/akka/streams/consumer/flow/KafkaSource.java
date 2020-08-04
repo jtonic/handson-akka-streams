@@ -10,14 +10,16 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class KafkaSource {
 
   @Getter
-  private final Source<CommittableMessage<String, String>, Control> source;
+  private final Source<CommittableMessage<UUID, String>, Control> source;
 
   public KafkaSource(
-      ConsumerSettings<String, String> kafkaConsumerSettings,
+      ConsumerSettings<UUID, String> kafkaConsumerSettings,
       @Value("${jtonic.akka-streams.kafka.topic}") String topic) {
 
     this.source = Consumer

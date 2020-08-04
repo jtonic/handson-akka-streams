@@ -1,5 +1,6 @@
 package ro.jtonic.handson.akka.streams.consumer.flow;
 
+import akka.Done;
 import akka.actor.ActorSystem;
 import akka.kafka.CommitterSettings;
 import akka.kafka.ConsumerMessage.CommittableMessage;
@@ -33,14 +34,16 @@ public class MainFlow {
     this.actorSystem = actorSystem;
   }
 
-  public void run() {
+  public Consumer.DrainingControl<Done> run() {
 
     CommitterSettings committerSettings = CommitterSettings.create(actorSystem);
-    kafkaSource.getSource()
-        .via(PassThroughFlow.create(validatorFlow.getFlow(), Keep.right()))
-        .map(CommittableMessage::committableOffset)
-        .toMat(Committer.sink(committerSettings), Keep.both())
-        .mapMaterializedValue(Consumer::createDrainingControl)
-        .run(materializer);
+    final Consumer.DrainingControl<Done> run = kafkaSource.getSource()
+            .via(PassThroughFlow.create(validatorFlow.getFlow(), Keep.right()))
+            .map(CommittableMessage::committableOffset)
+            .toMat(Committer.sink(committerSettings), Keep.both())
+            .mapMaterializedValue(Consumer::createDrainingControl)
+            .run(materializer);
+    return run;
+
   }
 }

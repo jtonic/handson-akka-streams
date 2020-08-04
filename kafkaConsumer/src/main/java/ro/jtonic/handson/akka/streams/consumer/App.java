@@ -4,7 +4,6 @@ import org.springframework.boot.Banner.Mode;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.Bean;
 import ro.jtonic.handson.akka.streams.common.conf.AkkaConf;
 
 @SpringBootApplication(
@@ -21,10 +20,5 @@ public class App {
         .web(WebApplicationType.NONE)
         .bannerMode(Mode.OFF)
         .build().run(args);
-  }
-
-  @Bean
-  public Worker consumerWorker() {
-    return new Worker();
   }
 }
