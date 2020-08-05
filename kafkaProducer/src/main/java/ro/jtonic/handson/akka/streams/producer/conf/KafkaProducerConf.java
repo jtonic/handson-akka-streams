@@ -28,10 +28,14 @@ public class KafkaProducerConf {
   @Bean
   public ProducerSettings<UUID, Notification> producerSettings() {
     final Config config = actorSystem.settings().config().getConfig("akka.kafka.producer");
-    final KafkaJsonSerializer<Notification> valueSerializer = new KafkaJsonSerializer<>();
-    valueSerializer.configure(Collections.emptyMap(), false);
     return ProducerSettings.create(config, new UUIDSerializer(),
-        valueSerializer)
+        createKafkaJsonSerializer())
         .withBootstrapServers(bootstrapServers);
+  }
+
+  private KafkaJsonSerializer<Notification> createKafkaJsonSerializer() {
+    final KafkaJsonSerializer<Notification> jsonSerializer = new KafkaJsonSerializer<>();
+    jsonSerializer.configure(Collections.emptyMap(), false);
+    return jsonSerializer;
   }
 }
