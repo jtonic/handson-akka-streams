@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="[App] Alpakka Kafka Producer with metrics" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+  <configuration default="false" name="[App] Alpakka Kafka Producer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <module name="kafkaProducer" />
     <extension name="coverage">
       <pattern>
@@ -8,7 +8,6 @@
       </pattern>
     </extension>
     <option name="SPRING_BOOT_MAIN_CLASS" value="ro.jtonic.handson.akka.streams.producer.App" />
-    <option name="VM_PARAMETERS" value="-javaagent:$ModuleFileDir$/target/dependency/cinnamon-agent.jar -Dcinnamon.prometheus.http-server.port=9001" />
     <option name="ALTERNATIVE_JRE_PATH" />
     <method v="2">
       <option name="Make" enabled="true" />
