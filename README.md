@@ -5,9 +5,10 @@
 - [x] set up the project
 - [x] create the docker-compose (kafka, cassandra)
 - [x] create a simple alpakka kafka producer which produce kafka messages pushed by an iterator source
-- [ ] Configure the flow to serialize to JSON
+- [x] Configure the flow to serialize to JSON
 - [x] Configure the Akka Telemetry (developer sandbox) to tune the performance (fusion)
-- [ ] Create a simple alpakka kafka consumer and stream it to the console
+- [x] Create a simple alpakka kafka consumer and stream it to the console
+- [ ] Avro (de)serialization for alpakka kafka
 - [ ] Log configuration for:
     - [ ] Akka actors
     - [ ] Akka stream materializer
@@ -35,7 +36,21 @@
     $ cd  kafkaProducer
     $ mvn clean spring-boot:run -Pmetrics
     ```
+
+## How to generate, upload and see the avro schemas in schema registry
+
+- Generate java classes from schema and publish schema in schema registry
+
+    run in `kafkaProducer` the command `mvn clean generate-resources`
     
+    or all this can be achieved by running a goal after the `generate-resources` like `compile` or `test`
+
+- See the information in schema registry by pointing the browser to
+
+  1. http://localhost:8082/subjects
+  1. http://localhost:8082/subjects/NotificationEvent_v1-value/versions
+  1. http://localhost:8082/subjects/NotificationEvent_v1-value/versions/1
+
 ## Monitoring the application:
 
   - See [here](https://developer.lightbend.com/docs/telemetry/current/sandbox/prometheus-sandbox.html) how to download the lightbend prometheus sandbox     
@@ -83,5 +98,4 @@
             <url>https://lightbend.bintray.com/commercial-releases</url>
         </repository>
     </settings>
-    ```  
- 
+    ```

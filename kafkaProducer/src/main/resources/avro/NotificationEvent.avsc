@@ -1,0 +1,17 @@
+{
+  "namespace": "ro.jtonic.handson.akka.streams.producer.model.avro",
+  "type": "record",
+  "name": "NotificationEvent",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string",
+      "doc": "NotificationEvent id"
+    },
+    {
+      "name": "body",
+      "type": "string",
+      "doc": "NotificationEvent body"
+    }
+  ]
+}

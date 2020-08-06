@@ -33,6 +33,9 @@
     <driver.version>4.7.2</driver.version>
     <lombok.version>1.18.12</lombok.version>
     <kafka-json-serializer.version>5.5.1</kafka-json-serializer.version>
+    <kafka-schema-registry-maven-plugin.version>5.5.1</kafka-schema-registry-maven-plugin.version>
+    <avro-maven-plugin.version>1.10.0</avro-maven-plugin.version>
+    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
   </properties>
 
   <dependencies>
@@ -58,6 +61,12 @@
       <groupId>io.confluent</groupId>
       <artifactId>kafka-json-serializer</artifactId>
       <version>${kafka-json-serializer.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.confluent</groupId>
+      <artifactId>kafka-avro-serializer</artifactId>
+      <version>5.5.1</version>
     </dependency>
 
     <dependency>
@@ -102,6 +111,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
           <annotationProcessorPaths>
             <path>
@@ -113,6 +123,22 @@
         </configuration>
       </plugin>
     </plugins>
+
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.avro</groupId>
+          <artifactId>avro-maven-plugin</artifactId>
+          <version>${avro-maven-plugin.version}</version>
+        </plugin>
+        <plugin>
+          <groupId>io.confluent</groupId>
+          <artifactId>kafka-schema-registry-maven-plugin</artifactId>
+          <version>${kafka-schema-registry-maven-plugin.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <repositories>
@@ -127,4 +153,17 @@
       <url>	https://packages.confluent.io/maven/</url>
     </repository>
   </repositories>
+
+  <pluginRepositories>
+    <pluginRepository>
+        <id>confluent_repo</id>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+        <url>	https://packages.confluent.io/maven/</url>
+    </pluginRepository>
+  </pluginRepositories>
 </project>
