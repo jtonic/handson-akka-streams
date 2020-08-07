@@ -1,5 +1,5 @@
 {
-  "namespace": "ro.jtonic.handson.akka.streams.producer.model.avro",
+  "namespace": "ro.jtonic.handson.akka.streams.common.model.avro",
   "type": "record",
   "name": "NotificationEvent",
   "fields": [

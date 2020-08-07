@@ -4,7 +4,7 @@ import akka.NotUsed;
 import akka.stream.javadsl.Flow;
 import lombok.Getter;
 import org.springframework.stereotype.Service;
-import ro.jtonic.handson.akka.streams.producer.model.avro.NotificationEvent;
+import ro.jtonic.handson.akka.streams.common.model.avro.NotificationEvent;
 
 @Service
 public class ConvertFlow {

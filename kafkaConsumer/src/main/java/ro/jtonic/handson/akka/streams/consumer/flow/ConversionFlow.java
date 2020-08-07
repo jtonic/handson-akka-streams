@@ -7,7 +7,7 @@ import java.util.UUID;
 import lombok.Getter;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Service;
-import ro.jtonic.handson.akka.streams.producer.model.avro.NotificationEvent;
+import ro.jtonic.handson.akka.streams.common.model.avro.NotificationEvent;
 
 @Service
 public class ConversionFlow {
