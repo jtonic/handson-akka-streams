@@ -18,8 +18,6 @@
           <option name="profilesMap">
             <map>
               <entry key="metrics" value="true" />
-              <entry key="avro-schema-generate" value="true" />
-              <entry key="avro-schema-register" value="true" />
             </map>
           </option>
           <option name="resolveToWorkspace" value="false" />
