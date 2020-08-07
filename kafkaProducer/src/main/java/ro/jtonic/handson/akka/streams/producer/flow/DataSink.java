@@ -9,15 +9,14 @@ import java.util.concurrent.CompletionStage;
 import lombok.Getter;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.springframework.stereotype.Service;
-import ro.jtonic.handson.akka.streams.common.model.Notification;
 
 @Service
 public class DataSink {
 
   @Getter
-  private final Sink<ProducerRecord<UUID, Notification>, CompletionStage<Done>> sink;
+  private final Sink<ProducerRecord<UUID, Object>, CompletionStage<Done>> sink;
 
-  public DataSink(ProducerSettings<UUID, Notification> producerSettings) {
+  public DataSink(ProducerSettings<UUID, Object> producerSettings) {
     this.sink = Producer.plainSink(producerSettings).named("kafka-data-sink");
   }
 }

@@ -73,6 +73,7 @@
 - [SB and alpakka example](https://medium.com/@lprakashv/akka-streams-in-java-spring-boot-f7749cafb7f5)
 - [Github example](https://github.com/daggerok/spring-boot-reactive-scala-example/blob/master/src/main/scala/com/github/daggerok/SpringBootScalaApplication.scala)
 - [Alpakka samples](https://github.com/akka/alpakka-samples)
+- [Alpakka Kafka (de)serialization with avro schema](https://doc.akka.io/docs/alpakka-kafka/current/serialization.html#avro-with-schema-registry)
 
 ## Lightbend Telemetry
   - [How to install prometheus sandbox](https://developer.lightbend.com/docs/telemetry/current/sandbox/prometheus-sandbox.html)

@@ -6,6 +6,7 @@ jtonic:
       bootstrap-servers: localhost:9092
       topic: ecore-topic
       group-id: ecore-group
+      schema-registry-url: http://localhost:8082
   messages-no: 10000
 #  busy duration in millisec
   busy-duration: 200

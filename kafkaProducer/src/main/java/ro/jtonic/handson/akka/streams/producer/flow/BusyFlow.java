@@ -7,18 +7,18 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import ro.jtonic.handson.akka.streams.common.Busy;
-import ro.jtonic.handson.akka.streams.common.model.Notification;
+import ro.jtonic.handson.akka.streams.producer.model.avro.NotificationEvent;
 
 @Service
 public class BusyFlow {
 
   @Getter
-  private final Flow<Notification, Notification, NotUsed> flow;
+  private final Flow<NotificationEvent, NotificationEvent, NotUsed> flow;
 
   public BusyFlow(
          @Value("${jtonic.busy-duration}") long busyDuration
   ) {
-    flow = Flow.of(Notification.class)
+    flow = Flow.of(NotificationEvent.class)
         .map(s -> {
           Busy.busy(Duration.ofMillis(busyDuration));
           return s;
