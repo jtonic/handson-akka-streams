@@ -10,16 +10,15 @@ import java.util.UUID;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import ro.jtonic.handson.akka.streams.common.model.Notification;
 
 @Service
 public class KafkaSource {
 
   @Getter
-  private final Source<CommittableMessage<UUID, Notification>, Control> source;
+  private final Source<CommittableMessage<UUID, Object>, Control> source;
 
   public KafkaSource(
-      ConsumerSettings<UUID, Notification> kafkaConsumerSettings,
+      ConsumerSettings<UUID, Object> kafkaConsumerSettings,
       @Value("${jtonic.akka-streams.kafka.topic}") String topic) {
 
     this.source = Consumer

@@ -16,20 +16,20 @@ public class MainFlow {
 
   private final KafkaSource kafkaSource;
   private final DataSink dataSink;
-  private final ValidatorFlow validatorFlow;
+  private final ConversionFlow conversionFlow;
   private final Materializer materializer;
   private final ActorSystem actorSystem;
 
   public MainFlow(
-          KafkaSource kafkaSource,
-          DataSink dataSink,
-          ValidatorFlow validatorFlow,
-          Materializer materializer,
-          ActorSystem actorSystem) {
+      KafkaSource kafkaSource,
+      DataSink dataSink,
+      ConversionFlow conversionFlow,
+      Materializer materializer,
+      ActorSystem actorSystem) {
 
     this.kafkaSource = kafkaSource;
     this.dataSink = dataSink;
-    this.validatorFlow = validatorFlow;
+    this.conversionFlow = conversionFlow;
     this.materializer = materializer;
     this.actorSystem = actorSystem;
   }
@@ -38,7 +38,7 @@ public class MainFlow {
 
     CommitterSettings committerSettings = CommitterSettings.create(actorSystem);
     final Consumer.DrainingControl<Done> run = kafkaSource.getSource()
-            .via(PassThroughFlow.create(validatorFlow.getFlow(), Keep.right()))
+            .via(PassThroughFlow.create(conversionFlow.getFlow(), Keep.right()))
             .map(CommittableMessage::committableOffset)
             .toMat(Committer.sink(committerSettings), Keep.both())
             .mapMaterializedValue(Consumer::createDrainingControl)
