@@ -22,6 +22,30 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.avro</groupId>
+        <artifactId>avro-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>schema</goal>
+            </goals>
+            <configuration>
+              <stringType>String</stringType>
+              <enableDecimalLogicalType>true</enableDecimalLogicalType>
+              <sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
+              <outputDirectory>${project.build.directory}/generated-sources/avro/</outputDirectory>
+              <fieldVisibility>PRIVATE</fieldVisibility>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
   <profiles>
     <profile>
       <id>metrics</id>
@@ -115,26 +139,6 @@
                 <cinnamon.prometheus.http-server.port>${cinnamon.prometheus.http-server.port}</cinnamon.prometheus.http-server.port>
               </systemPropertyVariables>
             </configuration>
-          </plugin>
-
-          <plugin>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <phase>generate-sources</phase>
-                <goals>
-                  <goal>schema</goal>
-                </goals>
-                <configuration>
-                  <stringType>String</stringType>
-                  <enableDecimalLogicalType>true</enableDecimalLogicalType>
-                  <sourceDirectory>${project.basedir}/src/main/resources/avro/</sourceDirectory>
-                  <outputDirectory>${project.build.directory}/generated-sources/avro/</outputDirectory>
-                  <fieldVisibility>PRIVATE</fieldVisibility>
-                </configuration>
-              </execution>
-            </executions>
           </plugin>
 
           <plugin>
