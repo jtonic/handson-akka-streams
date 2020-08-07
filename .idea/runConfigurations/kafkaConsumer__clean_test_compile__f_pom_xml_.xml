@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="kafkaConsumer [clean,spring-boot:run]" type="MavenRunConfiguration" factoryName="Maven">
+  <configuration default="false" name="kafkaConsumer [clean test-compile -f pom.xml]" type="MavenRunConfiguration" factoryName="Maven">
     <MavenSettings>
       <option name="myGeneralSettings" />
       <option name="myRunnerSettings" />
@@ -11,7 +11,7 @@
           <option name="goals">
             <list>
               <option value="clean" />
-              <option value="spring-boot:run" />
+              <option value="test-compile" />
             </list>
           </option>
           <option name="pomFileName" value="pom.xml" />
