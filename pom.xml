@@ -28,10 +28,10 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
     <scala.version>2.13</scala.version>
-    <akka-stream-kafka.version>2.0.4</akka-stream-kafka.version>
-    <akka.version>2.6.8</akka.version>
-    <driver.version>4.7.2</driver.version>
-    <lombok.version>1.18.12</lombok.version>
+    <akka-stream-kafka.version>2.1.1</akka-stream-kafka.version>
+    <akka.version>2.6.16</akka.version>
+    <driver.version>4.13.0</driver.version>
+    <lombok.version>1.18.22</lombok.version>
     <kafka-json-serializer.version>5.5.1</kafka-json-serializer.version>
     <kafka-schema-registry-maven-plugin.version>5.5.1</kafka-schema-registry-maven-plugin.version>
     <avro-maven-plugin.version>1.10.0</avro-maven-plugin.version>
@@ -123,7 +123,6 @@
         </configuration>
       </plugin>
     </plugins>
-
 
     <pluginManagement>
       <plugins>
